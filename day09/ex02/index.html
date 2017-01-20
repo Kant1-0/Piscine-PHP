@@ -1,0 +1,35 @@
+<!doctype html>
+<html style="background: slategray;">
+    <head>
+        <title>To Do</title>
+        <style>
+            .corned-note {
+                position: relative;
+                width: 0;
+                height: 0;
+                border-top: 100px solid transparent;
+                border-right: 100px solid yellow;
+            }
+            .corned-note:hover {
+                border-right: 100px solid goldenrod;
+            }
+            .note {
+                text-align: center;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="position: fixed;background-color: gold;height: 800px;width: 800px;top: 50%;left: 50%; margin: -400px;">
+            <div class="corned-note" onclick="newNote();"><div style="position: relative;top: -35px;left: 28px;font-size: 35px;cursor: pointer;">New</div></div>
+            <h1 style="position: relative;text-align: center;top: -100px;">To do or not to do</h1>
+
+            <hr/>
+            <div id="ft_list">
+
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="todo.js"></script>
+    </body>
+</html>

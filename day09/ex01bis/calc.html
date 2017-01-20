@@ -1,0 +1,62 @@
+<!doctype html>
+<html style="background: lightgrey;">
+    <head>
+        <title>Calculator</title>
+        <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    </head>
+
+    <body>
+        <div style="position: fixed; height: 800px;width: 600px;background-color: darkslategrey; left: 50%; top: 50%; margin-top: -400px; margin-left: -300px; border-radius: 5%;font-size: 30px;">
+            <h1 style="color: whitesmoke;text-align: center;">Super Calculator</h1>
+            <div style="position: relative;top: -10px"><hr/><div>
+            <form name="calc">
+                <input style="position: relative; height: 80px; width: 80%; background-color: whitesmoke; top: 15px; left: 9.5%; border-radius: 10px;text-align: center;font-size: 55px;color: #333;" type="text" id="left-member">
+                <select style="position: relative; height: 80px; width: 20%; background-color: whitesmoke; top: 100px; left: 39.5%; border-radius: 10px;text-align: center;font-size: 55px;color: #333;" id="operator">
+                    <option value="plus">+</option>
+                    <option value="minus">-</option>
+                    <option value="multiply">*</option>
+                    <option value="divide">/</option>
+                    <option value="modulo">%</option>
+                </select>
+                <input style="position: relative; height: 80px; width: 80%; background-color: whitesmoke; top: 200px; left: 9.5%; border-radius: 10px;text-align: center;font-size: 55px;color: #333;" type="text" id="right-member">
+                <div style="position: relative;top: 230px"><hr/><div>
+                <input style="position: relative; height: 80px; background-color: #333; top: 20px; left: 33%; border-radius: 10px;text-align: center;font-size: 55px;color: whitesmoke;" type="button" id="tryme" value="Try me!">
+            </form>
+        </div>
+
+        <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#tryme').click( function () {
+                $num1 = parseInt(document.getElementById('left-member').value);
+                $op = document.getElementById('operator').value;
+                $num2 = parseInt(document.getElementById('right-member').value);
+
+                if ($num1 != NaN && $num2 != NaN && $num1 >= 0 && $num2 >= 0) {
+                    if ($op == "plus")
+                        $res = $num1 + $num2;
+                    else if ($op == "minus")
+                        $res = $num1 - $num2;
+                    else if ($op == "multiply")
+                        $res = $num1 * $num2;
+                    else if ($op == "divide" && $num2 != 0)
+                        $res = $num1 / $num2;
+                    else if ($op == "modulo" && $num2 != 0)
+                        $res = $num1 % $num2;
+                    else {
+                        alert("It's over 9000!");
+                        console.log("It's over 9000!");
+                        return;
+                    }
+                    alert($res);
+                    console.log($res);
+                } else
+                    alert("Erorr :(");
+            });
+
+            setInterval(function(){alert("Please, use me...");}, 30000);
+        });
+        </script>
+    </body>
+
+</html>

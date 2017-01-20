@@ -1,0 +1,53 @@
+<!doctype html>
+<html style="background: slategray;">
+    <head>
+        <title>Balloon</title>
+    </head>
+    <body>
+        <div onclick="grow();" onmouseout="inverse();" style="position: fixed;margin: -100px;top: 50%;left: 50%;height: 200px;width: 200px;background-color: crimson;border-radius: 50%;" id="balloon"></div>
+        <script type="text/javascript">
+            var grow = function () {
+                $prevh = parseInt(document.getElementById('balloon').style.height);
+                $prevw = parseInt(document.getElementById('balloon').style.width);
+                $prevm = parseInt(document.getElementById('balloon').style.margin);
+                $prevc = document.getElementById('balloon').style.backgroundColor;
+
+                if (($prevh + 10) <= 420) {
+                    document.getElementById('balloon').style.height = $prevh + 10 + "px";
+                    document.getElementById('balloon').style.width = $prevw + 10 + "px";
+                    document.getElementById('balloon').style.margin = $prevm - 5 + "px";
+                } else {
+                    document.getElementById('balloon').style.height = 200 + "px";
+                    document.getElementById('balloon').style.width = 200 + "px";
+                    document.getElementById('balloon').style.margin = -100 + "px";
+                }
+
+                if ($prevc == "crimson")
+                    document.getElementById('balloon').style.backgroundColor = "mediumseagreen";
+                if ($prevc == "mediumseagreen")
+                    document.getElementById('balloon').style.backgroundColor = "cyan";
+                if ($prevc == "cyan")
+                    document.getElementById('balloon').style.backgroundColor = "crimson";
+            };
+            var inverse = function () {
+                $prevh = parseInt(document.getElementById('balloon').style.height);
+                $prevw = parseInt(document.getElementById('balloon').style.width);
+                $prevm = parseInt(document.getElementById('balloon').style.margin);
+                $prevc = document.getElementById('balloon').style.backgroundColor;
+
+                if ($prevh > 200) {
+                    document.getElementById('balloon').style.height = $prevh - 5 + "px";
+                    document.getElementById('balloon').style.width = $prevw - 5 + "px";
+                    document.getElementById('balloon').style.margin = $prevm + 2.5 + "px";
+                }
+
+                if ($prevc == "crimson")
+                    document.getElementById('balloon').style.backgroundColor = "cyan";
+                if ($prevc == "cyan")
+                    document.getElementById('balloon').style.backgroundColor = "mediumseagreen";
+                if ($prevc == "mediumseagreen")
+                    document.getElementById('balloon').style.backgroundColor = "crimson";
+            };
+        </script>
+    </body>
+</html>
